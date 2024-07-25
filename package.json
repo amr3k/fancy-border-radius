@@ -13,14 +13,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/9elements/fancy-border-radius.git"
+    "url": "git+https://github.com/amr3k/fancy-border-radius.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/9elements/fancy-border-radius/issues"
+    "url": "https://github.com/amr3k/fancy-border-radius/issues"
   },
-  "homepage": "https://github.com/9elements/fancy-border-radius#readme",
+  "homepage": "https://github.com/amr3k/fancy-border-radius#readme",
   "devDependencies": {
     "sass": "^1.77.8",
     "vite": "^5.3.5",
