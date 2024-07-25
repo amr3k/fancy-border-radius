@@ -1,0 +1,1 @@
+if('serviceWorker' in navigator) {window.addEventListener('load', () => {navigator.serviceWorker.register('/fancy-border-radius/sw.js', { scope: '/fancy-border-radius/' })})}
