@@ -32,16 +32,16 @@ export default class FullControlBox extends AdjustableBox {
     }
   }
   updateBorderRadius () {
-    let brd = this.state.top + '% '
-    brd += (100 - this.state.topRight) + '% '
-    brd += (100 - this.state.bottomRight) + '% '
-    brd += this.state.bottom + '%/'
-    brd += this.state.left + '% '
-    brd += this.state.right + '% '
-    brd += (100 - this.state.rightBottom) + '% '
-    brd += (100 - this.state.leftBottom) + '% '
+    let brd = this.state.top + '% ';
+    brd += (100 - this.state.topRight) + '% ';
+    brd += (100 - this.state.bottomRight) + '% ';
+    brd += this.state.bottom + '%/';
+    brd += this.state.left + '% ';
+    brd += this.state.right + '% ';
+    brd += (100 - this.state.rightBottom) + '% ';
+    brd += (100 - this.state.leftBottom) + '%';
     this.shapeElem.style['border-radius'] = brd
-    this.generatorElem.innerHTML = brd
+    this.generatorElem.innerHTML = 'border-radius: ' + brd + ';';
     this.generatorElemTailwind.innerHTML = 'rounded-[' + brd.trim(' ').replaceAll(' ', '_') + ']';
   }
   saveUrlParams () {

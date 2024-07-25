@@ -30,10 +30,10 @@ export default class SimpleControlBox extends AdjustableBox {
     brd += this.state.left + '% '
     brd += this.state.right + '% '
     brd += (100 - this.state.right) + '% '
-    brd += (100 - this.state.left) + '% '
+    brd += (100 - this.state.left) + '%'
     this.shapeElem.style['border-radius'] = brd
-    this.generatorElem.innerHTML = brd
-    this.generatorElemTailwind.innerHTML = 'rounded-[' + brd.trim(' ').replaceAll(' ', '_') + ']';
+    this.generatorElem.innerHTML = 'border-radius: ' + brd + ';';
+    this.generatorElemTailwind.innerHTML = 'rounded-[' + brd.replaceAll(' ', '_') + ']';
   }
   saveUrlParams() {
     const { left, top, right, bottom, width, height } = this.state
