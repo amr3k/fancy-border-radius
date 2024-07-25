@@ -2,7 +2,9 @@ export default class AdjustableBox {
   constructor({
     shapeElemId = "shape",
     generatorElemId = "code",
+    generatorElemTailwindId = "tw-code",
     copyCodeId = "copy",
+    copyCodeIdTw = "tw-copy",
     copiedCodeId = "clipboard_copied",
     boxContainerId = "box",
     widthInputId = "width",
@@ -12,6 +14,7 @@ export default class AdjustableBox {
     moveableElems,
   } = {}) {
     this.generatorElem = document.getElementById(generatorElemId);
+    this.generatorElemTailwind = document.getElementById(generatorElemTailwindId);
     this.shapeElem = document.getElementById(shapeElemId);
     this.copiedCode = document.getElementById(copiedCodeId);
     this.boxContainer = document.getElementById(boxContainerId);
@@ -29,6 +32,7 @@ export default class AdjustableBox {
     this.initAdvanced();
     this.handles = this.initHandles(moveableElems);
     document.getElementById(copyCodeId).onclick = this.setClipboard.bind(this);
+    document.getElementById(copyCodeIdTw).onclick = this.setClipboardTailwind.bind(this);
   }
   initHandles(moveableElems) {
     throw new Error("You have to implement the method initHandles!");
@@ -62,6 +66,20 @@ export default class AdjustableBox {
 
   setClipboard() {
     navigator.clipboard.writeText(this.generatorElem.innerHTML).then(
+      () => {
+        this.copiedCode.innerHTML =
+          '<div class="alert">Copied to clipboard 👍</div>';
+      },
+      () => {
+        this.copiedCode.innerHTML = '<div class="alert">💔 Not Supported</div>';
+      }
+    );
+    setTimeout(() => {
+      this.copiedCode.innerHTML = "";
+    }, 2000);
+  }
+  setClipboardTailwind() {
+    navigator.clipboard.writeText(this.generatorElemTailwind.innerHTML).then(
       () => {
         this.copiedCode.innerHTML =
           '<div class="alert">Copied to clipboard 👍</div>';

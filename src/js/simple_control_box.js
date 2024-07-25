@@ -2,7 +2,7 @@ import AdjustableBox from './adjustable_box'
 import Movable from './movable'
 
 export default class SimpleControlBox extends AdjustableBox {
-  initState (state) {
+  initState(state) {
     let defaultState = {
       left: 30,
       right: 30,
@@ -14,7 +14,7 @@ export default class SimpleControlBox extends AdjustableBox {
     }
     this.state = state == null ? defaultState : state
   }
-  initHandles (moveableElems) {
+  initHandles(moveableElems) {
     return {
       left: new Movable(moveableElems.left, this.updateState.bind(this), 'y', this.state.left, this.saveUrlParams.bind(this)),
       right: new Movable(moveableElems.right, this.updateState.bind(this), 'y', this.state.right, this.saveUrlParams.bind(this)),
@@ -22,19 +22,20 @@ export default class SimpleControlBox extends AdjustableBox {
       bottom: new Movable(moveableElems.bottom, this.updateState.bind(this), 'x', this.state.bottom, this.saveUrlParams.bind(this))
     }
   }
-  updateBorderRadius () {
-    var brd = this.state.top + '% '
+  updateBorderRadius() {
+    let brd = this.state.top + '% '
     brd += (100 - this.state.top) + '% '
     brd += (100 - this.state.bottom) + '% '
-    brd += this.state.bottom + '% / '
+    brd += this.state.bottom + '%/'
     brd += this.state.left + '% '
     brd += this.state.right + '% '
     brd += (100 - this.state.right) + '% '
     brd += (100 - this.state.left) + '% '
     this.shapeElem.style['border-radius'] = brd
     this.generatorElem.innerHTML = brd
+    this.generatorElemTailwind.innerHTML = 'rounded-[' + brd.trim(' ').replaceAll(' ', '_') + ']';
   }
-  saveUrlParams () {
+  saveUrlParams() {
     const { left, top, right, bottom, width, height } = this.state
     let hash = `${left}.${top}.${right}.${bottom}--${height}.${width}`
     this.setUrlHash(hash)
