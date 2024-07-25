@@ -1,6 +1,6 @@
 # CSS Border-Radius Can Do That?
 
-This is a clone of [Fancy border radius](https://github.com/9elements/fancy-border-radius) with added TailwindCSS support.
+This is a clone of [Fancy border radius](https://github.com/9elements/fancy-border-radius) with added TailwindCSS support and removed telemetry.
 
 When you use eight values specifying border-radius in CSS, you can build organic looking shapes. WOW 😱.
 
