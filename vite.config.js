@@ -1,7 +1,9 @@
-import { defineConfig } from "vite";
 import { resolve } from "path";
+import { defineConfig } from "vite";
+import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
+  plugins: [VitePWA()],
   root: "./",
   base: "/fancy-border-radius/",
   build: {
